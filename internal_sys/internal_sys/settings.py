@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'hr_app.apps.HrAppConfig',
     'crm_app.apps.CrmAppConfig',
     'oa_app.apps.OaAppConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

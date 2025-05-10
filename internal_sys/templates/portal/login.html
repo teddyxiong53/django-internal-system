@@ -1,36 +1,15 @@
-{% extends "admin/base_site.html" %}
+{% extends "base.html" %}
 {% load static %}
+{% load widget_tweaks %}
 
-{% block extrastyle %}
-<style>
-    .login-form {
-        max-width: 400px;
-        margin: 50px auto;
-        padding: 20px;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .login-form h1 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .login-form .form-row {
-        margin-bottom: 15px;
-    }
-    .login-form .submit-row {
-        text-align: center;
-        padding: 20px 0;
-    }
-    .messages {
-        margin-bottom: 20px;
-    }
-</style>
+{% block extra_css %}
+
 {% endblock %}
 
 {% block content %}
-<div class="login-form">
-    <h1>用户登录</h1>
+<div class="card auth-card">
+    <div class="card-body p-lg-5">
+        <h1 class="card-title text-center mb-4">用户登录</h1>
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -40,13 +19,24 @@
     {% endif %}
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <div class="submit-row">
-            <input type="submit" value="登录" class="default">
+        <div class="mb-3">
+            {% for field in form %}
+            <div class="form-group mb-3">
+                <label class="form-label">{{ field.label }}</label>
+                {{ field|add_class:'form-control' }}
+                {% if field.errors %}
+                <div class="errorlist">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
         </div>
-        <p style="text-align: center;">
-            没有账号？<a href="{% url 'register' %}">注册</a>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary btn-lg">登录</button>
+        </div>
+        <p class="text-center mt-4">
+            没有账号？<a href="{% url 'register' %}" class="text-link">立即注册</a>
         </p>
     </form>
+    </div>
 </div>
 {% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">客户详情</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">姓名</dt>
+                <dd class="col-sm-9">{{ customer.name }}</dd>
+                
+                <dt class="col-sm-3">公司</dt>
+                <dd class="col-sm-9">{{ customer.company }}</dd>
+                
+                <dt class="col-sm-3">职位</dt>
+                <dd class="col-sm-9">{{ customer.position }}</dd>
+                
+                <dt class="col-sm-3">联系方式</dt>
+                <dd class="col-sm-9">{{ customer.contact }}</dd>
+            </dl>
+            <div class="mt-4">
+                <a href="{% url 'customer_list' %}" class="btn btn-secondary btn-sm">返回列表</a>
+                <a href="#" class="btn btn-warning btn-sm">编辑信息</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

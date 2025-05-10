@@ -11,4 +11,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('oa_app/', include('oa_app.urls')),
     path('hr_app/', include('hr_app.urls')),
+    path('crm_app/', include('crm_app.urls', namespace='crm')),
 ]

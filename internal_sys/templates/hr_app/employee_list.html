@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">员工列表</h2>
+    <div class="card">
+        <div class="card-body">
+            {% for employee in employees %}
+            <div class="card mb-3">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">{{ employee.name }}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <span class="d-block">职位：{{ employee.position }}</span>
+                        <span class="d-block">部门：{{ employee.department }}</span>
+                    </p>
+                    <div class="text-muted small">
+                        <span>入职日期：{{ employee.hire_date|date:'Y-m-d' }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-light">
+            <h4 class="card-title mb-0">{{ employee.name }} 的详细信息</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <dl class="row">
+                        <dt class="col-sm-3">职位：</dt>
+                        <dd class="col-sm-9">{{ employee.position }}</dd>
+                        
+                        <dt class="col-sm-3">部门：</dt>
+                        <dd class="col-sm-9">{{ employee.department }}</dd>
+                        
+                        <dt class="col-sm-3">入职日期：</dt>
+                        <dd class="col-sm-9">{{ employee.hire_date|date:'Y-m-d' }}</dd>
+                        
+                        <dt class="col-sm-3">联系方式：</dt>
+                        <dd class="col-sm-9">{{ employee.contact }}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

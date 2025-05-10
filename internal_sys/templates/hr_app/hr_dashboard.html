@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>HR 仪表盘</h1>
+<div class="dashboard-stats">
+    <div class="stat-card">
+        <h3>总员工数</h3>
+        <p>{{ employee_count }}</p>
+    </div>
+    <div class="stat-card">
+        <h3>最新入职</h3>        <p>{{ latest_hire.name }}</p>
+    </div>
+</div>
+<a href="{% url 'employee_list' %}" class="btn btn-primary">查看员工列表</a>
+{% endblock %}

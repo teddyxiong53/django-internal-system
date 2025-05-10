@@ -3,7 +3,48 @@
 {% load widget_tweaks %}
 
 {% block extra_css %}
-
+<style>
+    .auth-card {
+        max-width: 500px;
+        margin: 2rem auto;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .auth-card:hover {
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .form-control:focus {
+        border-color: #79aec8;
+        box-shadow: 0 0 0 0.2rem rgba(121,174,200,.25);
+    }
+    .btn-primary {
+        background-color: #79aec8;
+        border-color: #79aec8;
+        padding: 0.5rem 2rem;
+    }
+    .btn-primary:hover {
+        background-color: #417690;
+        border-color: #417690;
+    }
+    .form-label {
+        font-weight: 500;
+        color: #2c3e50;
+    }
+    .errorlist {
+        list-style: none;
+        padding-left: 0;
+        color: #dc3545;
+        font-size: 0.9rem;
+    }
+    .text-link {
+        color: #79aec8;
+        text-decoration: none;
+    }
+    .text-link:hover {
+        color: #417690;
+    }
+</style>
 {% endblock %}
 
 {% block content %}

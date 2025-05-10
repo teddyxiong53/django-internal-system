@@ -1,5 +1,54 @@
 {% extends 'base.html' %}
 
+{% block extra_css %}
+<style>
+    .announcement-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .announcement-card {
+        background: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .announcement-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .announcement-card h3 {
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+    }
+    
+    .post-time {
+        color: #7f8c8d;
+        font-size: 0.9em;
+        margin-bottom: 1rem;
+    }
+    
+    .view-all {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background-color: #79aec8;
+        color: white;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.2s;
+    }
+    
+    .view-all:hover {
+        background-color: #417690;
+    }
+</style>
+{% endblock %}
 {% block content %}
 <div class="content-header">
     <h1>公告通知</h1>

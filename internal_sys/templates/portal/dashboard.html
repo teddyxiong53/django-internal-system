@@ -58,11 +58,13 @@
 
 <div class="app-grid">
     {% for app in apps %}
+    {% if app.name != 'Portal' %}  <!-- 新增过滤条件 -->
     <div class="app-card">
         <h3>{{ app.name }}</h3>
         <p>{{ app.description }}</p>
         <a href="{{ app.url }}">进入应用</a>
     </div>
-    {% endfor %}
+    {% endif %}  <!-- 结束条件判断 -->
+{% endfor %}
 </div>
 {% endblock %}

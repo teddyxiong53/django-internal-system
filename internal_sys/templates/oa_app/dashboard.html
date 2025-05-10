@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-header">
+    <h1>公告通知</h1>
+    <a href="{% url 'announcement_list' %}" class="view-all">查看全部</a>
+</div>
+
+<div class="announcement-grid">
+    {% for announcement in announcements|slice:":3" %}
+    <div class="announcement-card">
+        <h3>{{ announcement.title }}</h3>
+        <p class="post-time">{{ announcement.publish_date|date:'Y-m-d H:i' }}</p>
+        <div class="announcement-content">
+            {{ announcement.content|truncatechars:100 }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">公告列表</h2>
+    <div class="card">
+        <div class="card-body">
+            {% for announcement in announcements %}
+            <div class="card mb-3">
+                <div class="card-header bg-light">
+                    <h5 class="card-title mb-0">{{ announcement.title }}</h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ announcement.content|truncatechars:100 }}</p>
+                    <div class="text-muted small">
+                        <span>作者：{{ announcement.author.username }}</span>
+                        <span class="ml-3">发布日期：{{ announcement.publish_date|date:'Y-m-d H:i' }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
